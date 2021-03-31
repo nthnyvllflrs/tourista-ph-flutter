@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourista_ph/screens/home.dart';
+import 'package:tourista_ph/screens/tourist_spot.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Tourista PH',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -20,6 +22,9 @@ class MyApp extends StatelessWidget {
           return MaterialPageRoute(builder: (context) => HomeScreen());
         }
 
+        if (settings.name == TouristSpotScreen.routeName) {
+          return MaterialPageRoute(builder: (context) => TouristSpotScreen());
+        }
         // if (settings.name == SectionScreen.routeName) {
         //   final SectionScreenArguments args = settings.arguments;
 
