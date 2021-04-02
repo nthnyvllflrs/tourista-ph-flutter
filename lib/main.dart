@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tourista_ph/screens/home.dart';
 import 'package:tourista_ph/screens/tourist_guide.dart';
 import 'package:tourista_ph/screens/tourist_spot.dart';
+import 'package:tourista_ph/screens/tourist_spot_booking_checkout.dart';
+import 'package:tourista_ph/screens/tourist_spot_order_checkout.dart';
 import 'package:tourista_ph/screens/tourist_spot_order_booking.dart';
 import 'package:tourista_ph/screens/travel_itinerary.dart';
 
@@ -32,6 +34,16 @@ class MyApp extends StatelessWidget {
         if (settings.name == TouristSpotOrderBookingScreen.routeName) {
           return MaterialPageRoute(
               builder: (context) => TouristSpotOrderBookingScreen());
+        }
+
+        if (settings.name == TouristSpotOrderCheckoutScreen.routeName) {
+          return MaterialPageRoute(
+              builder: (context) => TouristSpotOrderCheckoutScreen());
+        }
+
+        if (settings.name == TouristSpotBookingCheckoutScreen.routeName) {
+          return MaterialPageRoute(
+              builder: (context) => TouristSpotBookingCheckoutScreen());
         }
 
         if (settings.name == TouristGuideScreen.routeName) {

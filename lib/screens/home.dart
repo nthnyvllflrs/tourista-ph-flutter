@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Stack(
         children: [
           Positioned(
-            top: -45,
+            // top: -55,
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: ClipRRect(
@@ -170,14 +170,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 0.0),
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.all(
                   Radius.circular(10.0),
                 ),
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 1.25,
+                  width: MediaQuery.of(context).size.width / 1.15,
                   child: TextFormField(
                     validator: (value) {
                       if (value.isEmpty) {}
