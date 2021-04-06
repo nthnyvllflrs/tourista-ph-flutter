@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tourista_ph/screens/tourist_guide_booking_checkout.dart';
 import 'package:tourista_ph/screens/travel_itinerary.dart';
 
 class TouristGuideScreen extends StatefulWidget {
@@ -296,7 +297,17 @@ class _TouristGuideScreenState extends State<TouristGuideScreen>
                               fontSize: 12,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            dynamic result;
+
+                            result = await Navigator.pushNamed(context,
+                                TouristGuideBookingCheckoutScreen.routeName);
+
+                            if (result != null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(result.toString())));
+                            }
+                          },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(10)),

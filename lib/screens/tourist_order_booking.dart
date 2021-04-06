@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tourista_ph/screens/tourist_booking_details.dart';
+import 'package:tourista_ph/screens/tourist_guide_booking_details.dart';
+import 'package:tourista_ph/screens/tourist_order_details.dart';
 import 'package:tourista_ph/screens/tourist_spot_booking_checkout.dart';
 import 'package:tourista_ph/screens/tourist_spot_order_checkout.dart';
 
-class TouristSpotOrderBookingScreen extends StatefulWidget {
-  static const routeName = '/touristspotorderbooking';
+class TouristOrderBookingScreen extends StatefulWidget {
+  static const routeName = '/touristorderbooking';
   @override
-  _TouristSpotOrderBookingScreenState createState() =>
-      _TouristSpotOrderBookingScreenState();
+  _TouristOrderBookingScreenState createState() =>
+      _TouristOrderBookingScreenState();
 }
 
-class _TouristSpotOrderBookingScreenState
-    extends State<TouristSpotOrderBookingScreen>
+class _TouristOrderBookingScreenState extends State<TouristOrderBookingScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   @override
   void initState() {
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
     super.initState();
   }
 
@@ -52,11 +54,13 @@ class _TouristSpotOrderBookingScreenState
                 indicatorColor: Color(0xFF569A87),
                 labelColor: Color(0xFF569A87),
                 unselectedLabelColor: Colors.black,
+                isScrollable: true,
                 tabs: [
                   Tab(text: 'Menus'),
                   Tab(text: 'Rooms'),
                   Tab(text: 'Services'),
                   Tab(text: 'Souvenirs'),
+                  Tab(text: 'Tourist Guides'),
                 ],
               ),
             ),
@@ -69,22 +73,24 @@ class _TouristSpotOrderBookingScreenState
                       itemCount: 7,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, TouristOrderDetailsScreen.routeName);
+                          },
                           trailing: Text(
                             'Php 2,500.00',
                             style: GoogleFonts.roboto(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           title: Text(
-                            'Item 1 (Php 500.00 x 5)',
+                            'M#21548625646',
                             style:
                                 GoogleFonts.roboto(fontWeight: FontWeight.bold),
                           ),
                           subtitle: Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus nulla nunc, quis feugiat libero eleifend ut. Nullam a auctor sapien.',
+                            'Sta Cruz Island',
                             style: GoogleFonts.roboto(
-                                fontSize: 11.0, fontStyle: FontStyle.italic),
+                                fontSize: 12.0, fontStyle: FontStyle.italic),
                           ),
                         );
                       },
@@ -95,22 +101,24 @@ class _TouristSpotOrderBookingScreenState
                       itemCount: 5,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, TouristBookingDetailsScreen.routeName);
+                          },
                           trailing: Text(
                             'Php 2,500.00',
                             style: GoogleFonts.roboto(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           title: Text(
-                            'Item 1 (Php 500.00 x 5)',
+                            'R#21548625646',
                             style:
                                 GoogleFonts.roboto(fontWeight: FontWeight.bold),
                           ),
                           subtitle: Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus nulla nunc, quis feugiat libero eleifend ut. Nullam a auctor sapien.',
+                            'Sta Cruz Island',
                             style: GoogleFonts.roboto(
-                                fontSize: 11.0, fontStyle: FontStyle.italic),
+                                fontSize: 12.0, fontStyle: FontStyle.italic),
                           ),
                         );
                       },
@@ -121,22 +129,24 @@ class _TouristSpotOrderBookingScreenState
                       itemCount: 3,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          contentPadding:
-                              const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, TouristBookingDetailsScreen.routeName);
+                          },
                           trailing: Text(
                             'Php 2,500.00',
                             style: GoogleFonts.roboto(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           title: Text(
-                            'Item 1 (Php 500.00 x 5)',
+                            'S#21548625646',
                             style:
                                 GoogleFonts.roboto(fontWeight: FontWeight.bold),
                           ),
                           subtitle: Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus nulla nunc, quis feugiat libero eleifend ut. Nullam a auctor sapien.',
+                            'Sta Cruz Island',
                             style: GoogleFonts.roboto(
-                                fontSize: 11.0, fontStyle: FontStyle.italic),
+                                fontSize: 12.0, fontStyle: FontStyle.italic),
                           ),
                         );
                       },
@@ -146,59 +156,35 @@ class _TouristSpotOrderBookingScreenState
                       child: Center(
                     child: Text('No Souvenirs Added.'),
                   )),
-                ],
-              ),
-            ),
-            Container(
-              color: Colors.grey[300],
-              width: double.infinity,
-              height: 50,
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Total',
-                      style: GoogleFonts.roboto(
-                          fontSize: 16, fontWeight: FontWeight.bold)),
-                  Text('Php 37,500.00',
-                      style: GoogleFonts.roboto(
-                          fontSize: 16, fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 50,
-              child: RawMaterialButton(
-                fillColor: Color(0xFF569A87),
-                splashColor: Color(0xFF165A5A),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Proceed Checkout",
-                    style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                  Container(
+                    child: ListView.builder(
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context,
+                                TouristGuideBookingDetailsScreen.routeName);
+                          },
+                          trailing: Text(
+                            'Php 2,500.00',
+                            style: GoogleFonts.roboto(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          title: Text(
+                            'T#21548625646',
+                            style:
+                                GoogleFonts.roboto(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text(
+                            'Travel Itinerary',
+                            style: GoogleFonts.roboto(
+                                fontSize: 12.0, fontStyle: FontStyle.italic),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                ),
-                onPressed: () async {
-                  dynamic result;
-
-                  if (_tabController.index == 0 || _tabController.index == 3) {
-                    result = await Navigator.pushNamed(
-                        context, TouristSpotOrderCheckoutScreen.routeName);
-                  } else {
-                    result = await Navigator.pushNamed(
-                        context, TouristSpotBookingCheckoutScreen.routeName);
-                  }
-
-                  if (result != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(result.toString())));
-                  }
-                },
+                ],
               ),
             ),
           ],

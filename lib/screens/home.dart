@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tourista_ph/screens/tourist_guide.dart';
+import 'package:tourista_ph/screens/tourist_order_booking.dart';
 import 'package:tourista_ph/screens/tourist_spot.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -128,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Stack(
         children: [
           Positioned(
-            // top: -55,
+            top: -55,
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: ClipRRect(
@@ -207,6 +208,31 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              onPressed: () {
+                // Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.account_circle_rounded,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, TouristOrderBookingScreen.routeName);
+              },
+              icon: Icon(
+                Icons.list,
+                color: Colors.white,
               ),
             ),
           )

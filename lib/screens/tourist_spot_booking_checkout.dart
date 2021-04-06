@@ -204,7 +204,7 @@ class _TouristSpotBookingCheckoutScreenState
                 ),
                 onPressed: () {
                   showDialog(
-                    barrierDismissible: true,
+                    barrierDismissible: false,
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
@@ -232,7 +232,7 @@ class _TouristSpotBookingCheckoutScreenState
 
                   Timer(Duration(seconds: 3), () {
                     Navigator.pop(context);
-                    Navigator.pop(context);
+                    Navigator.pop(context, 'Booking Successfully Sent.');
                   });
                 },
               ),

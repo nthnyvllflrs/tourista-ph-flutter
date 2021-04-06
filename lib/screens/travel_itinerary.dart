@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tourista_ph/screens/tourist_guide_booking_checkout.dart';
 
 class TravelItineraryScreen extends StatefulWidget {
   static const routeName = '/travelitinerary';
@@ -96,7 +97,17 @@ class _TravelItineraryScreenState extends State<TravelItineraryScreen> {
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            dynamic result;
+
+                            result = await Navigator.pushNamed(context,
+                                TouristGuideBookingCheckoutScreen.routeName);
+
+                            if (result != null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(result.toString())));
+                            }
+                          },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(10)),
