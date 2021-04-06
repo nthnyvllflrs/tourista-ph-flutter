@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tourista_ph/screens/tourist.dart';
 import 'package:tourista_ph/screens/tourist_guide.dart';
 import 'package:tourista_ph/screens/tourist_order_booking.dart';
 import 'package:tourista_ph/screens/tourist_spot.dart';
@@ -215,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
             alignment: Alignment.topLeft,
             child: IconButton(
               onPressed: () {
-                // Navigator.pop(context);
+                Navigator.pushNamed(context, TouristScreen.routeName);
               },
               icon: Icon(
                 Icons.account_circle_rounded,

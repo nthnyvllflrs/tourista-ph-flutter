@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourista_ph/screens/home.dart';
+import 'package:tourista_ph/screens/tourist.dart';
 import 'package:tourista_ph/screens/tourist_booking_details.dart';
 import 'package:tourista_ph/screens/tourist_guide.dart';
 import 'package:tourista_ph/screens/tourist_guide_booking_checkout.dart';
@@ -83,6 +84,10 @@ class MyApp extends StatelessWidget {
         if (settings.name == TouristBookingDetailsScreen.routeName) {
           return MaterialPageRoute(
               builder: (context) => TouristBookingDetailsScreen());
+        }
+
+        if (settings.name == TouristScreen.routeName) {
+          return MaterialPageRoute(builder: (context) => TouristScreen());
         }
 
         // if (settings.name == SectionScreen.routeName) {
