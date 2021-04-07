@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Stack(
         children: [
           Positioned(
-            top: -55,
+            // top: -55,
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: ClipRRect(
