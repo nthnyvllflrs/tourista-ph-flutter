@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourista_ph/screens/home.dart';
+import 'package:tourista_ph/screens/login.dart';
 import 'package:tourista_ph/screens/tourist.dart';
 import 'package:tourista_ph/screens/tourist_booking_details.dart';
 import 'package:tourista_ph/screens/tourist_guide.dart';
@@ -27,8 +28,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/home',
+      initialRoute: '/login',
       onGenerateRoute: (settings) {
+        if (settings.name == LoginScreen.routeName) {
+          return MaterialPageRoute(builder: (context) => LoginScreen());
+        }
+
         if (settings.name == HomeScreen.routeName) {
           return MaterialPageRoute(builder: (context) => HomeScreen());
         }

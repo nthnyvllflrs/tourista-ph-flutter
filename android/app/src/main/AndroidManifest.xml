@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tourista_ph">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="tourista_ph"
         android:icon="@mipmap/ic_launcher">

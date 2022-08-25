@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tourista_ph/screens/login.dart';
 
 class TouristScreen extends StatefulWidget {
   static const routeName = '/touristscreen';
@@ -43,7 +42,7 @@ class _TouristScreenState extends State<TouristScreen> {
                 fillColor: Color(0xFF569A87),
                 splashColor: Color(0xFF165A5A),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Text(
                     "Update Profile",
                     style: GoogleFonts.roboto(
@@ -54,6 +53,27 @@ class _TouristScreenState extends State<TouristScreen> {
                   ),
                 ),
                 onPressed: () {},
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              width: double.infinity,
+              child: RawMaterialButton(
+                // fillColor: Color(0xFF569A87),
+                // splashColor: Color(0xFF165A5A),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "Sign Out",
+                    style: GoogleFonts.roboto(
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, LoginScreen.routeName, (route) => false);
+                },
               ),
             ),
           ]),

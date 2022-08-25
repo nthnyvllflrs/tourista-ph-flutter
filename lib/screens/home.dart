@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tourista_ph/screens/tourist.dart';
 import 'package:tourista_ph/screens/tourist_guide.dart';
 import 'package:tourista_ph/screens/tourist_order_booking.dart';
@@ -14,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  final _searchTextEdCon = TextEditingController();
   final List<String> imgList = [
     'https://images.unsplash.com/photo-1615320367500-bafc931a2ff0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
     'https://images.unsplash.com/photo-1615894253818-a71a88485fa8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
@@ -22,6 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
     'https://images.unsplash.com/photo-1615880325185-c794f749b92c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
     'https://images.unsplash.com/photo-1615306084840-7b18401354a4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80'
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _prefs.then((SharedPreferences prefs) {
+      // _searchTextEdCon.text = prefs.getString('token');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -181,6 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   width: MediaQuery.of(context).size.width / 1.15,
                   child: TextFormField(
+                    controller: _searchTextEdCon,
                     validator: (value) {
                       if (value.isEmpty) {}
                       return null;
